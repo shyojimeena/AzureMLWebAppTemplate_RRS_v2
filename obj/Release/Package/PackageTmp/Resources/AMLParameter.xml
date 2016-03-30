@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AMLParameterObject>
+  <Url>https://ussouthcentral.services.azureml.net/workspaces/fea54563d1c242089499a21ef1fa206d/services/ccb79b6411a04aad9f26f87f3fbb9dea/execute?api-version=2.0&amp;details=true</Url>
+  <APIKey>C1zzdxYNvFSGuA3DDM1uRqZHvhheqdcWdnTZJlR2DzPe5pt71zf3Hd3HnbWAD53JbtC4E5icZJBje0cdtP7S0Q==</APIKey>
+  <Title>Sample 5 for web with input output and global params [Scoring Exp.]</Title>
+  <Description>No description provided for this web service.</Description>
+  <InputGroup>input1</InputGroup>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>age</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>workclass</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>fnlwgt</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>education</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>education-num</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>marital-status</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>occupation</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>relationship</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>race</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>sex</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>capital-gain</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>capital-loss</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>hours-per-week</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>native-country</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>input1</Group>
+  </InputParameter>
+  <InputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>income</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>input1</Group>
+  </InputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>age</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>fnlwgt</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>education</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>education-num</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>marital-status</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>relationship</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>race</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>sex</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>capital-gain</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>capital-loss</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>hours-per-week</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>false</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>income</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>Scored Labels</Name>
+    <Type>string</Type>
+    <Format />
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue />
+    <Group>output1</Group>
+  </OutputParameter>
+  <OutputParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>Scored Probabilities</Name>
+    <Type>number</Type>
+    <Format>double</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>output1</Group>
+  </OutputParameter>
+  <GlobalParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>Fraction</Name>
+    <Type>number</Type>
+    <Format>double</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0.7</DefaultValue>
+    <Group>GlobalParameters</Group>
+  </GlobalParameter>
+  <GlobalParameter>
+    <Enable>true</Enable>
+    <Alias />
+    <Description />
+    <StrEnum />
+    <Name>Seed</Name>
+    <Type>integer</Type>
+    <Format>int32</Format>
+    <MaxValue>100</MaxValue>
+    <MinValue>0</MinValue>
+    <DefaultValue>0</DefaultValue>
+    <Group>GlobalParameters</Group>
+  </GlobalParameter>
+  <Copyright />
+</AMLParameterObject>
