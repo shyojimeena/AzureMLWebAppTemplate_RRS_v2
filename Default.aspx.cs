@@ -28,7 +28,7 @@ namespace AzureMLRRSWebTemplate
             {
                 Page.Title = paramObj.Title;
                 lblTitle.Text = paramObj.Title;                
-                webServicePostUrl = paramObj.Url;
+                webServicePostUrl = AMLParameterObject.GetPostUrl(paramObj.Url);
             }
             else RequireInfor();
 
