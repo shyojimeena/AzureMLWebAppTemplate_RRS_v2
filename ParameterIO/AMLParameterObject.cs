@@ -44,16 +44,7 @@ namespace ParameterIO
         {
             try
             {
-                string workspaceID = ExtractString(Url, "/workspaces/", "/").Trim('/');
-                if (string.IsNullOrEmpty(workspaceID))
-                    return "Extract workspaces ID Error!!! Please check the API Post URL";
-                string serviceID = ExtractString(Url, "/services/", "/").Trim('/');
-                if (string.IsNullOrEmpty(serviceID))
-                    return "Extract service ID Error!!! Please check the API Post URL";
-
-                string host = Url.Substring(0, Url.IndexOf("workspaces"));
-
-                return ReadSwagger(workspaceID, serviceID, host);
+                return ReadSwagger(GetSwaggerUrl(this.Url));
             }
             catch (Exception)
             {
@@ -61,22 +52,43 @@ namespace ParameterIO
             }
         }
 
-        List<string> GetPaths(string json, string ExecuteionPath)
+        public static string GetSwaggerUrl(string url)
         {
-            List<string> listOutputPath = new List<string>();
-            JToken outputToken = JObject.Parse(json).SelectToken(ExecuteionPath);//"definitions.ExecutionOutputs");
-            JToken outputTokenPropertise = outputToken["properties"];
-            if (outputTokenPropertise == null) return null;
+            string result = null;
 
-            foreach (var outputvar in JObject.Parse(outputTokenPropertise.ToString()))
+            url = AMLParameterObject.GetPostUrl(url);
+
+            if (!string.IsNullOrEmpty(url))
             {
-                if (outputvar.Value["items"]["$ref"] != null)
-                    listOutputPath.Add(outputvar.Value["items"]["$ref"].ToString().Replace("#/", "").Replace("/", "."));
+                Uri apiUrl = new Uri(url);
+                string executeSegment = "execute";
+                if (apiUrl.Segments != null)
+                {
+                    executeSegment = apiUrl.Segments.FirstOrDefault(s => executeSegment.Equals(s, StringComparison.InvariantCultureIgnoreCase));
+                }
+                result = apiUrl.AbsoluteUri.Replace(apiUrl.Query, string.Empty).Replace(executeSegment, "swagger.json").ToLower();
             }
-            return listOutputPath;
+            return result;
         }
 
-        public string ReadSwagger(string workspace, string webservice, string host)
+        public static string GetPostUrl(string url)
+        {
+            string result = null;
+
+            if (!string.IsNullOrEmpty(url))
+            {
+                Uri apiUrl = new Uri(url);
+                if (!string.IsNullOrEmpty(apiUrl.Host) &&
+                    apiUrl.Host.EndsWith("services.azureml.net", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    result = apiUrl.AbsoluteUri.Replace(apiUrl.Query, "?api-version=2.0&details=true").ToLower();
+                }
+            }
+
+            return result;
+        }
+
+        public string ReadSwagger(string swaggerUrl)
         {
             this.listInputParameter.Clear();
             this.listOutputParameter.Clear();
@@ -87,9 +99,8 @@ namespace ParameterIO
                 System.Net.WebClient wc = new System.Net.WebClient();
                 wc.Encoding = System.Text.Encoding.UTF8;
 
-                string jsonString = "";
-                if (host.Contains("ussouthcentral.services")) jsonString = wc.DownloadString(string.Format("https://ussouthcentral.services.azureml.net/workspaces/{0}/services/{1}/swagger.json", workspace, webservice));
-                if(string.IsNullOrEmpty(jsonString)) return "Please check API Post URL again.";
+                string jsonString = wc.DownloadString(swaggerUrl);
+                if (string.IsNullOrEmpty(jsonString)) return "Please check API Post URL again.";
 
                 try { this.Title = JObject.Parse(jsonString).SelectToken("info.title").ToString(); }
                 catch (Exception) { return "Cannot get Service Name !!!"; }
@@ -107,7 +118,7 @@ namespace ParameterIO
 
                 if (inputPaths != null)
                 {
-                    listInputGroup = inputPaths.Select(x => x.Replace("definitions.", "").Replace("Item","")).ToList();
+                    listInputGroup = inputPaths.Select(x => x.Replace("definitions.", "").Replace("Item", "")).ToList();
                     foreach (string inputP in inputPaths)
                         this.listInputParameter.AddRange(ParseMLParmeter(jsonString, inputP));
                 }
@@ -131,7 +142,21 @@ namespace ParameterIO
             {
                 return "Get Service Document Error !!! Please check the API Post URL";
             }
+        }
 
+        List<string> GetPaths(string json, string ExecuteionPath)
+        {
+            List<string> listOutputPath = new List<string>();
+            JToken outputToken = JObject.Parse(json).SelectToken(ExecuteionPath);//"definitions.ExecutionOutputs");
+            JToken outputTokenPropertise = outputToken["properties"];
+            if (outputTokenPropertise == null) return null;
+
+            foreach (var outputvar in JObject.Parse(outputTokenPropertise.ToString()))
+            {
+                if (outputvar.Value["items"]["$ref"] != null)
+                    listOutputPath.Add(outputvar.Value["items"]["$ref"].ToString().Replace("#/", "").Replace("/", "."));
+            }
+            return listOutputPath;
         }
 
         string ExtractString(string full, string start, string end)
